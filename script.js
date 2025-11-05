@@ -1,4 +1,4 @@
-
+// GRAFIK 1: Tugas per Mata Kuliah (Grafik Batang)
 const chartTugas = document.getElementById('chartTugas');
 
 new Chart(chartTugas, {
@@ -189,4 +189,4 @@ menuItems.forEach(item => {
         const menuName = this.textContent.trim();
         alert('Anda mengklik menu: ' + menuName);
     });
-}
+});
