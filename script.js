@@ -1,305 +1,192 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+const chartTugas = document.getElementById('chartTugas');
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-}
-
-/* SIDEBAR */
-.sidebar {
-    background-color: white;
-    height: 100vh;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 250px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4f46e5;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* Menu Sidebar */
-.menu {
-    list-style: none;
-    padding: 0;
-}
-
-.menu li {
-    margin-bottom: 10px;
-}
-
-.menu li a {
-    display: block;
-    padding: 12px 15px;
-    color: #666;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.menu li a:hover {
-    background-color: #f0f0f0;
-}
-
-.menu li.active a {
-    background-color: #4f46e5;
-    color: white;
-}
-
-/* Profile Box */
-.profile-box {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    text-align: center;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-}
-
-.profile-box img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.profile-box h5 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.profile-box p {
-    font-size: 12px;
-    color: #888;
-}
-
-/* KONTEN UTAMA */
-.main-content {
-    margin-left: 250px;
-    padding: 30px;
-}
-
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.header h2 {
-    font-size: 28px;
-    color: #333;
-}
-
-.header p {
-    color: #888;
-    margin-top: 5px;
-}
-
-.search-box {
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 250px;
-}
-
-.search-box:focus {
-    outline: none;
-    border-color: #4f46e5;
-}
-
-/* KARTU STATISTIK */
-.stat-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: 0.3s;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.stat-card h3 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.stat-card p {
-    color: #888;
-    font-size: 14px;
-}
-
-/* Warna kartu */
-.stat-card.blue h3 {
-    color: #4f46e5;
-}
-
-.stat-card.green h3 {
-    color: #10b981;
-}
-
-.stat-card.yellow h3 {
-    color: #f59e0b;
-}
-
-.stat-card.red h3 {
-    color: #ef4444;
-}
-
-/* KARTU GRAFIK */
-.chart-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    height: 100%;
-}
-
-.chart-card h4 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 18px;
-}
-
-/* TABEL */
-.table-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.table-card h4 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.table {
-    width: 100%;
-}
-
-.table thead {
-    background-color: #f9f9f9;
-}
-
-.table th {
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
-    color: #666;
-}
-
-.table td {
-    padding: 12px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-/* Badge Status */
-.badge {
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.badge.done {
-    background-color: #d1fae5;
-    color: #065f46;
-}
-
-.badge.progress {
-    background-color: #fef3c7;
-    color: #92400e;
-}
-
-.badge.pending {
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-
-/* PROGRESS BAR DI TABEL */
-.progress-bar-container {
-    width: 100%;
-    height: 20px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background-color: #f59e0b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    transition: width 0.5s ease;
-}
-
-.progress-bar-fill.done {
-    background-color: #10b981;
-}
-
-.progress-bar-fill.pending {
-    background-color: #ef4444;
-}
-
-/* RESPONSIVE - Untuk layar kecil */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+new Chart(chartTugas, {
+    type: 'bar', // Jenis grafik: batang
+    data: {
+        labels: ['Web Design', 'Pemrograman', 'Database', 'Matematika', 'B. Inggris'],
+        datasets: [{
+            label: 'Jumlah Tugas',
+            data: [3, 2, 1, 1, 1], // Data jumlah tugas
+            backgroundColor: [
+                '#4f46e5', // Ungu
+                '#10b981', // Hijau
+                '#f59e0b', // Kuning
+                '#ef4444', // Merah
+                '#6366f1'  // Biru
+            ],
+            borderRadius: 5
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1 // Naik per 1
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false // Sembunyikan legend
+            }
+        }
     }
+});
+
+// GRAFIK 2: Status Tugas (Grafik Donat)
+const chartStatus = document.getElementById('chartStatus');
+
+new Chart(chartStatus, {
+    type: 'doughnut', // Jenis grafik: donat
+    data: {
+        labels: ['Selesai', 'Progress', 'Belum'],
+        datasets: [{
+            data: [5, 2, 1], // Data status tugas
+            backgroundColor: [
+                '#10b981', // Hijau untuk selesai
+                '#f59e0b', // Kuning untuk progress
+                '#ef4444'  // Merah untuk belum
+            ],
+            borderWidth: 2,
+            borderColor: '#fff'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+
+// GRAFIK 3: Progress Tugas per Minggu (Grafik Garis)
+const chartProgress = document.getElementById('chartProgress');
+
+new Chart(chartProgress, {
+    type: 'line', // Jenis grafik: garis
+    data: {
+        labels: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4', 'Minggu 5'],
+        datasets: [
+            {
+                label: 'Tugas Selesai',
+                data: [1, 2, 3, 4, 5], // Tugas yang selesai bertambah
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                fill: true,
+                tension: 0.4, // Membuat garis melengkung
+                borderWidth: 3,
+                pointRadius: 5,
+                pointBackgroundColor: '#10b981'
+            },
+            {
+                label: 'Tugas Ditambahkan',
+                data: [2, 3, 2, 1, 0], // Tugas baru yang ditambahkan
+                borderColor: '#4f46e5',
+                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                fill: true,
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 5,
+                pointBackgroundColor: '#4f46e5'
+            },
+            {
+                label: 'Total Tugas Aktif',
+                data: [2, 3, 2, 3, 3], // Total tugas yang masih aktif
+                borderColor: '#f59e0b',
+                backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                fill: true,
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 5,
+                pointBackgroundColor: '#f59e0b'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    usePointStyle: true,
+                    padding: 15
+                }
+            },
+            tooltip: {
+                mode: 'index',
+                intersect: false
+            }
+        }
+    }
+});
+
+// FUNGSI PENCARIAN SEDERHANA
+const searchBox = document.querySelector('.search-box');
+
+searchBox.addEventListener('input', function() {
+    const keyword = this.value.toLowerCase();
+    const rows = document.querySelectorAll('.table tbody tr');
     
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-    }
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(keyword)) {
+            row.style.display = ''; // Tampilkan
+        } else {
+            row.style.display = 'none'; // Sembunyikan
+        }
+    });
+});
+
+// PESAN SELAMAT DATANG
+console.log('Dashboard Tugas Kuliah berhasil dimuat! 🎉');
+
+// ANIMASI SEDERHANA SAAT HALAMAN DIMUAT
+window.addEventListener('load', function() {
+    const statCards = document.querySelectorAll('.stat-card');
     
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .search-box {
-        width: 100%;
-        margin-top: 15px;
-    }
-    
-    .profile-box {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin-top: 20px;
-    }
-    
-    .table {
-        font-size: 12px;
-    }
-    
-    .progress-bar-container {
-        min-width: 80px;
-    }
+    statCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 50);
+        }, index * 100);
+    });
+});
+
+// KLIK MENU SIDEBAR
+const menuItems = document.querySelectorAll('.menu li');
+
+menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Hapus class active dari semua menu
+        menuItems.forEach(menu => menu.classList.remove('active'));
+        
+        // Tambah class active ke menu yang diklik
+        this.classList.add('active');
+        
+        // Tampilkan pesan (nanti bisa diganti dengan load halaman lain)
+        const menuName = this.textContent.trim();
+        alert('Anda mengklik menu: ' + menuName);
+    });
 }
