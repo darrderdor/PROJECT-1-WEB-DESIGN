@@ -189,4 +189,4 @@ menuItems.forEach(item => {
         const menuName = this.textContent.trim();
         alert('Anda mengklik menu: ' + menuName);
     });
-}
+});
